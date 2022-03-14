@@ -11,18 +11,16 @@ output:
 library(ggplot2)
 library(flexdashboard)
 library(plotly)
-library(plyr)
 library(hrbrthemes)
 library(DT) 
 
 
-
+##Filtered by disease and empty chromosomes removed
 lupus_cat <- read.csv("/Users/gonzalac/OneDrive - KAUST/gwas_lupus_filtrado.csv")
 lupus_cat ##1071
 ##Filtramos for p values
 lupus_cat <- lupus_cat[lupus_cat$P.VALUE < 1e-6,]
-lupus_cat  ##828
-##Filtramos empty chromosomes
+lupus_cat  ##731
 
 ##Ordenamos X axis
 lupus_cat$CHR_ID <- factor(lupus_cat$CHR_ID, levels = c("1","2","3","4","5","6","7","8","9",
@@ -52,7 +50,7 @@ Column {data-width=400}
 ### Table
 
 ```{r}
-datatable(lupus_cat, rownames = FALSE, options = list(pageLength =5), fillContainer = TRUE)
+datatable(lupus_cat, rownames = FALSE, options = list(pageLength =5))
 ```
 
 ### Bar Plot
