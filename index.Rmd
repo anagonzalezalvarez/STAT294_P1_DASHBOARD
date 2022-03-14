@@ -15,7 +15,7 @@ library(hrbrthemes)
 library(DT) 
 
 
-##Filtered by disease and empty chromosomes removed
+##Filtered by disease and empty chromosomes removed ~30,000
 lupus_cat <- read.csv("/Users/gonzalac/OneDrive - KAUST/gwas_lupus_filtrado.csv")
 lupus_cat ##1071
 ##Filtramos for p values
